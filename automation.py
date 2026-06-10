@@ -188,7 +188,7 @@ def generate_image(place_name):
         "https://aihorde.net/api/v2/generate/async",
         headers=horde_headers,
         json=payload,
-        timeout=60
+        timeout=180
     )
     submit_response.raise_for_status()
 
@@ -198,7 +198,7 @@ def generate_image(place_name):
         check_response = requests.get(
             f"https://aihorde.net/api/v2/generate/check/{generation_id}",
             headers=horde_headers,
-            timeout=60
+            timeout=180
         )
         check_response.raise_for_status()
 
@@ -218,7 +218,7 @@ def generate_image(place_name):
     status_response = requests.get(
         f"https://aihorde.net/api/v2/generate/status/{generation_id}",
         headers=horde_headers,
-        timeout=60
+        timeout=180
     )
     status_response.raise_for_status()
 
